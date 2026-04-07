@@ -36,7 +36,12 @@ def criar_tabela():
         period_ending DATE,
         reporting_period INT,
         days_in_period INT,
-        total DECIMAL(10,2)
+        bus_journeys_m DECIMAL(10,2),
+        underground_journeys_m DECIMAL(10,2),
+        dlr_journeys_m DECIMAL(10,2),
+        tram_journeys_m DECIMAL(10,2),
+        overground_journeys_m DECIMAL(10,2),
+        total_journeys DECIMAL(10,2)
     )
     """)
 
@@ -61,8 +66,13 @@ def inserir_dados():
         period_ending,
         reporting_period,
         days_in_period,
-        total
-    ) VALUES (%s, %s, %s, %s, %s)
+        bus_journeys_m,
+        underground_journeys_m,
+        dlr_journeys_m,
+        tram_journeys_m,
+        overground_journeys_m,
+        total_journeys
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
     dados = []
@@ -73,6 +83,11 @@ def inserir_dados():
             row["period_ending"],
             int(row["reporting_period"]),
             int(row["days_in_period"]),
+            float(row["bus_journeys_m"]),
+            float(row["underground_journeys_m"]),
+            float(row["dlr_journeys_m"]),
+            float(row["tram_journeys_m"]),
+            float(row["overground_journeys_m"]),
             float(row["total_journeys"])
         ))
 
