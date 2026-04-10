@@ -44,11 +44,12 @@ df = df.sort_values("period_beginning")
 
 plt.figure()
 plt.plot(df["period_beginning"], df["total_journeys"])
-plt.title("Total Journeys Over Time")
+plt.title("Total de Viagens ao Longo do Tempo")
 plt.xlabel("Date")
 plt.ylabel("Total Journeys")
 plt.xticks(rotation=45)
 plt.tight_layout()
+plt.savefig("outputs/grafico_total.png")
 plt.show()
 
 totais = {
@@ -61,6 +62,7 @@ totais = {
 
 plt.figure()
 plt.bar(totais.keys(), totais.values())
-plt.title("Total Journeys by Transport Type")
+plt.title("Total de Viagens por Tipo de Transporte")
 plt.xticks(rotation=45)
+plt.savefig("outputs/grafico_transporte.png")
 plt.show()
